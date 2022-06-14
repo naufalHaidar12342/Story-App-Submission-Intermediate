@@ -10,8 +10,10 @@
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/custom_signup_button.xml" value="0.2285" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/error_edittext_background.xml" value="0.2285" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/ic_android_small___1.xml" value="0.2285" />
+        <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/ic_baseline_app_registration_24.xml" value="0.184" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2285" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.2285" />
+        <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/ic_clear_text.xml" value="0.265" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/ic_landing_page.xml" value="0.184" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/ic_login_page_custom.xml" value="0.1975" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/ic_undraw_join_of2w.xml" value="0.1755" />
@@ -23,6 +25,7 @@
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout/activity_main.xml" value="0.1596871846619576" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout/fragment_landing_page.xml" value="0.25" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout/fragment_login.xml" value="0.5" />
+        <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout/fragment_story_login.xml" value="0.33" />
       </map>
     </option>
   </component>

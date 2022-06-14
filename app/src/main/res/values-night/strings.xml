@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="logo_dicoding">Logo Dicoding</string>
+    <string name="email_icon">Email icon</string>
+    <string name="password_icon">Password icon</string>
+</resources>

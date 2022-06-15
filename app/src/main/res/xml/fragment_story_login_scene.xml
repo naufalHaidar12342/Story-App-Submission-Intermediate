@@ -27,7 +27,7 @@
             android:scaleX=".5"
             android:alpha="0" />
         <Constraint
-            android:id="@+id/myCustomEmailLogin"
+            android:id="@+id/email_login"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -36,15 +36,6 @@
             motion:layout_constraintStart_toEndOf="@+id/email_input_icon"
             motion:layout_constraintTop_toBottomOf="@+id/logo_dicoding"
             motion:layout_constraintHorizontal_bias="1.0"
-            android:alpha="0" />
-        <Constraint
-            android:id="@+id/myCustomPassword"
-            motion:layout_constraintEnd_toEndOf="@+id/myCustomEmailLogin"
-            motion:layout_constraintStart_toEndOf="@+id/password_input_icon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            motion:layout_constraintTop_toBottomOf="@+id/myCustomEmailLogin"
-            android:layout_marginTop="16dp"
             android:alpha="0" />
         <Constraint
             android:id="@+id/email_input_icon"
@@ -63,6 +54,37 @@
             android:layout_marginStart="16dp"
             motion:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="32dp"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/login_button"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintTop_toBottomOf="@+id/password_login"
+            android:layout_marginStart="16dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/register_hyperlink"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintTop_toBottomOf="@+id/login_button"
+            android:layout_marginStart="16dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:alpha="0" />
+        <Constraint
+            android:id="@+id/password_login"
+            motion:layout_constraintEnd_toEndOf="@+id/email_login"
+            motion:layout_constraintStart_toEndOf="@+id/password_input_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/email_login"
+            android:layout_marginTop="16dp"
             android:alpha="0" />
     </ConstraintSet>
 
@@ -78,7 +100,7 @@
             motion:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="16dp" />
         <Constraint
-            android:id="@+id/myCustomEmailLogin"
+            android:id="@+id/email_login"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -88,12 +110,12 @@
             motion:layout_constraintTop_toBottomOf="@+id/logo_dicoding"
             motion:layout_constraintHorizontal_bias="1.0" />
         <Constraint
-            android:id="@+id/myCustomPassword"
-            motion:layout_constraintEnd_toEndOf="@+id/myCustomEmailLogin"
+            android:id="@+id/password_login"
+            motion:layout_constraintEnd_toEndOf="@+id/email_login"
             motion:layout_constraintStart_toEndOf="@+id/password_input_icon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            motion:layout_constraintTop_toBottomOf="@+id/myCustomEmailLogin"
+            motion:layout_constraintTop_toBottomOf="@+id/email_login"
             android:layout_marginTop="16dp" />
         <Constraint
             android:id="@+id/email_input_icon"
@@ -111,5 +133,25 @@
             android:layout_marginStart="16dp"
             motion:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="32dp" />
+        <Constraint
+            android:id="@+id/login_button"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintTop_toBottomOf="@+id/password_login"
+            android:layout_marginStart="16dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp" />
+        <Constraint
+            android:id="@+id/register_hyperlink"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintTop_toBottomOf="@+id/login_button"
+            android:layout_marginStart="16dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp" />
     </ConstraintSet>
 </MotionScene>

@@ -22,10 +22,13 @@
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/drawable/normal_edittext_background.xml" value="0.2285" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout-land/fragment_login.xml" value="0.346875" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout-sw600dp/fragment_login.xml" value="0.12738367658276126" />
+        <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout/activity_dicoding_story.xml" value="0.34791666666666665" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout/activity_main.xml" value="0.1596871846619576" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout/fragment_landing_page.xml" value="0.25" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout/fragment_login.xml" value="0.5" />
         <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout/fragment_story_login.xml" value="0.33" />
+        <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/layout/fragment_story_register.xml" value="0.67" />
+        <entry key="..\:/Android Development Dicoding x Bangkit/StoryAppDicoding/app/src/main/res/menu/top_navigation_menu.xml" value="0.34791666666666665" />
       </map>
     </option>
   </component>

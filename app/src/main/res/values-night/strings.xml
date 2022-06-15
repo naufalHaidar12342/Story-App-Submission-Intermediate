@@ -3,4 +3,10 @@
     <string name="logo_dicoding">Logo Dicoding</string>
     <string name="email_icon">Email icon</string>
     <string name="password_icon">Password icon</string>
+    <string name="masuk">Masuk</string>
+    <string name="daftar">Daftar</string>
+    <string name="add_new_story">Add new story</string>
+    <string name="item">Item</string>
+    <string name="image_collection">Image collection</string>
+    <string name="cerita_dari_teman_teman_dicoding">Cerita dari teman-teman Dicoding</string>
 </resources>

@@ -60,6 +60,19 @@ class MyCustomEmail : AppCompatEditText,View.OnTouchListener {
         })
     }
 
+
+    private fun validateEmailAddressInputted(email:String) : Boolean{
+        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    private fun showButtonForClearingText() {
+        setButtonDrawables(endOfTheText = clearText)
+    }
+
+    private fun hideButtonForClearingText() {
+        setButtonDrawables()
+    }
+
     override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
         if (compoundDrawables[2] != null) {
             val clearButtonStart: Float
@@ -99,18 +112,6 @@ class MyCustomEmail : AppCompatEditText,View.OnTouchListener {
             } else { return false }
         }
         return false
-    }
-
-    private fun showButtonForClearingText() {
-        setButtonDrawables(endOfTheText = clearText)
-    }
-
-    private fun hideButtonForClearingText() {
-        setButtonDrawables()
-    }
-
-    private fun validateEmailAddressInputted(email:String) : Boolean{
-        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     private fun setButtonDrawables(

@@ -36,10 +36,9 @@ class MyCustomPassword : AppCompatEditText, View.OnTouchListener {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (p0!!.toString().isNotEmpty()) {
-                    showClearingButtonForPassword()
-
+                    showClearTextForPassword()
                 }else {
-                    hideClearingButtonForPassword()
+                    hideClearTextForPassword()
                 }
             }
 
@@ -52,11 +51,11 @@ class MyCustomPassword : AppCompatEditText, View.OnTouchListener {
         })
     }
     
-    private fun showClearingButtonForPassword() {
+    private fun showClearTextForPassword() {
         setButtonDrawables(endOfTheText = clearPasswordText )
     }
 
-    private fun hideClearingButtonForPassword() {
+    private fun hideClearTextForPassword() {
         setButtonDrawables()
 
     }
@@ -100,7 +99,7 @@ class MyCustomPassword : AppCompatEditText, View.OnTouchListener {
                 when (p1!!.action) {
                     MotionEvent.ACTION_DOWN -> {
                         clearPasswordText = ContextCompat.getDrawable(context, R.drawable.ic_clear_text) as Drawable
-                        showClearingButtonForPassword()
+                        showClearTextForPassword()
                         return true
                     }
                     MotionEvent.ACTION_UP -> {
@@ -108,7 +107,7 @@ class MyCustomPassword : AppCompatEditText, View.OnTouchListener {
                         when {
                             text != null -> text?.clear()
                         }
-                        hideClearingButtonForPassword()
+                        hideClearTextForPassword()
                         return true
                     }
                     else -> return false

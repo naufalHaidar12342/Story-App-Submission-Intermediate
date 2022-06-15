@@ -8,5 +8,14 @@
         android:id="@+id/storyLoginFragment"
         android:name="xyz.heydarrn.storyappdicoding.StoryLoginFragment"
         android:label="fragment_story_login"
-        tools:layout="@layout/fragment_story_login" />
+        tools:layout="@layout/fragment_story_login" >
+        <action
+            android:id="@+id/action_storyLoginFragment_to_storyRegisterFragment"
+            app:destination="@id/storyRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storyRegisterFragment"
+        android:name="xyz.heydarrn.storyappdicoding.StoryRegisterFragment"
+        android:label="fragment_story_register"
+        tools:layout="@layout/fragment_story_register" />
 </navigation>

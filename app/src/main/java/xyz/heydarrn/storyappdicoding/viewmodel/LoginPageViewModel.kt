@@ -17,5 +17,8 @@ class LoginPageViewModel(private val userConfig: UserConfig) : ViewModel() {
 
     fun grabToken():LiveData<String> = userConfig.getUserToken().asLiveData()
 
-    fun loggingIn(email:String,pass:String) = userConfig.loggingInUser(email,pass)
+    fun loggingIn(
+        email:String,
+        pass:String
+    ) = userConfig.loggingInUser(email,pass)
 }

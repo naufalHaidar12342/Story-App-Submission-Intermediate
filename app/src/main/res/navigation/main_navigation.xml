@@ -17,5 +17,9 @@
         android:id="@+id/storyRegisterFragment"
         android:name="xyz.heydarrn.storyappdicoding.StoryRegisterFragment"
         android:label="fragment_story_register"
-        tools:layout="@layout/fragment_story_register" />
+        tools:layout="@layout/fragment_story_register" >
+        <action
+            android:id="@+id/action_storyRegisterFragment_to_storyLoginFragment"
+            app:destination="@id/storyLoginFragment" />
+    </fragment>
 </navigation>

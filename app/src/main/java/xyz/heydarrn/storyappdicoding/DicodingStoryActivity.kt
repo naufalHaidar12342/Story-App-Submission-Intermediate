@@ -42,7 +42,7 @@ class DicodingStoryActivity : AppCompatActivity() {
         viewModelStory.isUserLoggedInStory().observe(this) { storyLoggedIn ->
             if (!storyLoggedIn) {
                 startActivity(
-                    Intent(this, StoryLoginFragment::class.java)
+                    Intent(this, MainActivity::class.java)
                 )
             }
         }

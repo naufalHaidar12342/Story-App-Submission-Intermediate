@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.textclassifier.TextLinks
+import androidx.datastore.preferences.protobuf.Api
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -41,6 +42,7 @@ class StoryLoginFragment : Fragment() {
         
         setPictureForImageView()
         setHyperlinkForRegisterAccount()
+//        bindingLogin.progressBarLogin.visibility=View.GONE
 
         bindingLogin.loginButton.setOnClickListener {
             userLoggingIn()
@@ -59,14 +61,14 @@ class StoryLoginFragment : Fragment() {
     }
     
     private fun setHyperlinkForRegisterAccount() {
-        val clickableSpan= object : ClickableSpan() {
+        val clickableSpan = object : ClickableSpan() {
             override fun onClick(p0: View) {
                 findNavController().navigate(StoryLoginFragmentDirections.actionStoryLoginFragmentToStoryRegisterFragment())
             }
 
             override fun updateDrawState(ds: TextPaint) {
                 super.updateDrawState(ds)
-                ds.isUnderlineText=false
+                ds.isUnderlineText = false
             }
         }
         val span=SpannableString(getString(R.string.hyperlink_to_register_account))
@@ -94,12 +96,13 @@ class StoryLoginFragment : Fragment() {
                 viewModelLogin.loggingIn(inputEmail,inputPassword).observe(viewLifecycleOwner) { loginResult ->
                     if (loginResult!=null) {
                         when(loginResult) {
+                            is ApiResponseConfig.ResultIsLoading -> {
+                                bindingLogin.progressBarLogin.visibility=View.VISIBLE
+                            }
                             is ApiResponseConfig.ResponseSuccess -> {
                                 val userData=loginResult.data
                                 if (userData.error) {
                                     Snackbar.make(requireContext(),view!!,userData.message,Snackbar.LENGTH_SHORT).show()
-
-
                                 } else {
                                     val userToken = userData.loginResult.token
                                     viewModelLogin.setToken(userToken,true)
@@ -110,7 +113,6 @@ class StoryLoginFragment : Fragment() {
                                 val errorMessage=resources.getString(R.string.login_failed)
                                 Snackbar.make(requireContext(),view!!,errorMessage,Snackbar.LENGTH_SHORT).show()
                             }
-                            else -> {}
                         }
                     }
                 }

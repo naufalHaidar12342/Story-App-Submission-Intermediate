@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.tracing:tracing:1.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/890c3484499625513d5ecd1135191751/transformed/tracing-1.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c5016eefc8b999a95c04a9ca5d0b740f/transformed/tracing-1.0.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2e2ff3b8909a0daf8baa900147265b0f/transformed/tracing-1.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2e2ff3b8909a0daf8baa900147265b0f/transformed/tracing-1.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2e2ff3b8909a0daf8baa900147265b0f/transformed/tracing-1.0.0/AndroidManifest.xml" />

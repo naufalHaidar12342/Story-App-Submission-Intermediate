@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_story_register_scene"
     tools:context=".StoryRegisterFragment">
 
     <ImageView
@@ -20,72 +21,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <xyz.heydarrn.storyappdicoding.customview.MyCustomEmail
-        android:id="@+id/email_register"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/email_icon_register"
-        app:layout_constraintTop_toBottomOf="@+id/logo_dicoding_register"
-        tools:ignore="TextContrastCheck" />
-
     <ImageView
         android:id="@+id/email_icon_register"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:contentDescription="@string/email_icon"
         android:src="@drawable/ic_email"
-        app:layout_constraintBottom_toBottomOf="@+id/email_register"
+        app:layout_constraintBottom_toBottomOf="@+id/custom_email_register"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/email_register" />
-
-    <xyz.heydarrn.storyappdicoding.customview.MyCustomPassword
-        android:id="@+id/password_register"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/password_icon_register"
-        app:layout_constraintTop_toBottomOf="@+id/email_register"
-        tools:ignore="TextContrastCheck" />
+        app:layout_constraintTop_toTopOf="@+id/custom_email_register" />
 
     <ImageView
         android:id="@+id/password_icon_register"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:contentDescription="@string/password_icon"
         android:src="@drawable/ic_key"
-        app:layout_constraintBottom_toBottomOf="@+id/password_register"
+        app:layout_constraintBottom_toBottomOf="@+id/custom_password_register"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/password_register"
-        app:layout_constraintVertical_bias="0.764" />
+        app:layout_constraintTop_toTopOf="@+id/custom_password_register" />
 
     <Button
         android:id="@+id/sign_up_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/daftar"
         app:icon="@drawable/ic_baseline_login_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_register" />
+        app:layout_constraintTop_toBottomOf="@+id/custom_password_register" />
 
     <TextView
         android:id="@+id/login_hyperlink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/hyperlink_to_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -93,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sign_up_button" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progress_bar_register"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -104,4 +81,53 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_hyperlink" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <xyz.heydarrn.storyappdicoding.customview.MyCustomUsernameRegister
+        android:id="@+id/custom_username_register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/username_icon_register"
+        app:layout_constraintTop_toBottomOf="@+id/logo_dicoding_register"
+        tools:ignore="TextContrastCheck" />
+
+    <ImageView
+        android:id="@+id/username_icon_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@string/icon_for_username"
+        android:src="@drawable/ic_baseline_people_24"
+        app:layout_constraintBottom_toBottomOf="@+id/custom_username_register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/custom_username_register" />
+
+    <xyz.heydarrn.storyappdicoding.customview.MyCustomEmailRegister
+        android:id="@+id/custom_email_register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/custom_username_register"
+        app:layout_constraintStart_toEndOf="@+id/email_icon_register"
+        app:layout_constraintTop_toBottomOf="@+id/custom_username_register"
+        tools:ignore="TextContrastCheck" />
+
+    <xyz.heydarrn.storyappdicoding.customview.MyCustomPasswordRegister
+        android:id="@+id/custom_password_register"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/custom_email_register"
+        app:layout_constraintStart_toEndOf="@+id/password_icon_register"
+        app:layout_constraintTop_toBottomOf="@+id/custom_email_register"
+        tools:ignore="TextContrastCheck" />
+</androidx.constraintlayout.motion.widget.MotionLayout>

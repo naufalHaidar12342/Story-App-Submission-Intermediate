@@ -27,4 +27,10 @@
     <string name="icon_for_username">Icon for username</string>
     <string name="created_at_template">Diposting pada : %1$s</string>
     <string name="created_at_xml_design">Diposting pada : 17 Juni 2022 20:20</string>
+    <string name="email_hint_register">"Masukkan email "</string>
+    <string name="password_hint_register">Password ( min. 6 digit , bebas )</string>
+    <string name="username_hint">"Masukkan nama pengguna ( min. 5 digit ) "</string>
+    <string name="username_invalid">Username minimal 5 digit</string>
+    <string name="email_registered_error">Email ini sudah terdaftar. Coba gunakan email lain.</string>
+    <string name="register_success">"Akun berhasil dibuat ! Selanjutnya silahkan login. "</string>
 </resources>

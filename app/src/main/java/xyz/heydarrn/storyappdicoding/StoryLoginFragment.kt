@@ -12,19 +12,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.textclassifier.TextLinks
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.google.android.material.snackbar.Snackbar
 import xyz.heydarrn.storyappdicoding.databinding.FragmentStoryLoginBinding
+import xyz.heydarrn.storyappdicoding.model.ApiResponseConfig
+import xyz.heydarrn.storyappdicoding.viewmodel.LoginPageViewModel
+import xyz.heydarrn.storyappdicoding.viewmodel.UserAuthModelFactory
 
 class StoryLoginFragment : Fragment() {
     private var _bindingLogin:FragmentStoryLoginBinding?=null
     private val bindingLogin get() = _bindingLogin!!
+    private lateinit var viewModelLogin:LoginPageViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _bindingLogin= FragmentStoryLoginBinding.inflate(inflater,container,false)
         return bindingLogin.root
@@ -35,7 +41,12 @@ class StoryLoginFragment : Fragment() {
         
         setPictureForImageView()
         setHyperlinkForRegisterAccount()
-        openStoryPage()
+
+        bindingLogin.loginButton.setOnClickListener {
+            userLoggingIn()
+        }
+
+        setupViewModel()
 
     }
 
@@ -64,10 +75,59 @@ class StoryLoginFragment : Fragment() {
         bindingLogin.registerHyperlink.movementMethod=LinkMovementMethod.getInstance()
         
     }
-    
-    private fun openStoryPage() {
-        bindingLogin.loginButton.setOnClickListener {
-            startActivity(Intent(context,DicodingStoryActivity::class.java))
+
+
+    private fun userLoggingIn() {
+        val inputEmail = bindingLogin.emailLogin.text.toString().trim()
+        val inputPassword = bindingLogin.passwordLogin.text.toString().trim()
+
+        when {
+            inputEmail.isEmpty() -> {
+                bindingLogin.emailLogin.error=resources.getString(R.string.email_empty)
+            }
+
+            inputPassword.isEmpty() -> {
+                bindingLogin.passwordLogin.error=resources.getString(R.string.password_empty)
+            }
+
+            else -> {
+                viewModelLogin.loggingIn(inputEmail,inputPassword).observe(viewLifecycleOwner) { loginResult ->
+                    if (loginResult!=null) {
+                        when(loginResult) {
+                            is ApiResponseConfig.ResponseSuccess -> {
+                                val userData=loginResult.data
+                                if (userData.error) {
+                                    Snackbar.make(requireContext(),view!!,userData.message,Snackbar.LENGTH_SHORT).show()
+
+
+                                } else {
+                                    val userToken = userData.loginResult.token
+                                    viewModelLogin.setToken(userToken,true)
+                                }
+                            }
+
+                            is ApiResponseConfig.ResponseFail -> {
+                                val errorMessage=resources.getString(R.string.login_failed)
+                                Snackbar.make(requireContext(),view!!,errorMessage,Snackbar.LENGTH_SHORT).show()
+                            }
+                            else -> {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setupViewModel() {
+        val factoryViewModel:UserAuthModelFactory = UserAuthModelFactory.getUserAuthInstance(requireContext())
+        viewModelLogin = ViewModelProvider(this,factoryViewModel)[LoginPageViewModel::class.java]
+
+        viewModelLogin.grabToken().observe(viewLifecycleOwner) {
+            if (it.isNotEmpty()) {
+                startActivity(
+                    Intent(requireContext(),DicodingStoryActivity::class.java)
+                )
+            }
         }
     }
 }

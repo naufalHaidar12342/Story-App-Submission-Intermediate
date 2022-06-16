@@ -9,4 +9,14 @@
     <string name="item">Item</string>
     <string name="image_collection">Image collection</string>
     <string name="cerita_dari_teman_teman_dicoding">Cerita dari teman-teman Dicoding</string>
+    <string name="taking_photo">Take a picture</string>
+    <string name="email_empty">Email kamu masih kosong. Yuk, isi dulu.</string>
+    <string name="password_empty">Password kamu masih kosong. Isi dulu, ya.</string>
+    <string name="login_failed">Uh-oh, login gagal. Coba cek lagi password dan emailnya</string>
+    <string name="photo_submitted_by_dicoding_friends">Photo submitted by Dicoding friends</string>
+    <string name="mencoba_kamera_digital_saya_photo_embun_ini_di_dekat_rumah">Mencoba kamera digital. Saya photo embun ini di dekat rumah</string>
+    <string name="andi">Andi</string>
+    <string name="icon_for_username">Icon for username</string>
+    <string name="created_at_template">Diposting pada : %1$s</string>
+    <string name="created_at_xml_design">Diposting pada : 17 Juni 2022 20:20</string>
 </resources>

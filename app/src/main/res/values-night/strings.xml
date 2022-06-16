@@ -25,4 +25,11 @@
     <string name="username_invalid">Username minimal 5 digit</string>
     <string name="email_registered_error">Email ini sudah terdaftar. Coba gunakan email lain.</string>
     <string name="register_success">"Akun berhasil dibuat ! Selanjutnya silahkan login. "</string>
+    <string name="click_to_flip_camera">Flip camera to use</string>
+    <string name="give_image_description">Masukkan deskripsi dari gambar kamu</string>
+    <string name="kamera">Kamera</string>
+    <string name="galeri">Galeri</string>
+    <string name="upload">Upload</string>
+    <string name="image_preview_before_upload">Image preview before upload</string>
+    <string name="upload_photo_preview_info">Di atas adalah preview dari photo yang akan di upload. Jika masih kosong, pilih photo dengan jepret langsung atau dari galeri</string>
 </resources>

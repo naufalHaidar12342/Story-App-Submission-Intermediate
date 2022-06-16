@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadNewStoryActivity">
+
+    <ImageView
+        android:id="@+id/preview_photo_upload"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:contentDescription="@string/image_preview_before_upload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <Button
+        android:id="@+id/snap_picture_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kamera"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_baseline_camera_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preview_info" />
+
+    <Button
+        android:id="@+id/photo_gallery_upload"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/galeri"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_baseline_collections_24"
+        app:layout_constraintEnd_toEndOf="@+id/snap_picture_upload"
+        app:layout_constraintStart_toStartOf="@+id/snap_picture_upload"
+        app:layout_constraintTop_toBottomOf="@+id/snap_picture_upload" />
+
+    <EditText
+        android:id="@+id/photo_description_upload"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="@string/give_image_description"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine|text"
+        android:lines="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photo_gallery_upload"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/upload_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/upload"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_baseline_send_24"
+        app:iconGravity="textStart"
+        app:iconPadding="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/photo_description_upload"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/photo_description_upload"
+        app:layout_constraintTop_toBottomOf="@+id/photo_description_upload" />
+
+    <TextView
+        android:id="@+id/preview_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:drawablePadding="4dp"
+        android:text="@string/upload_photo_preview_info"
+        app:drawableStartCompat="@drawable/ic_baseline_info_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preview_photo_upload" />
+</androidx.constraintlayout.widget.ConstraintLayout>

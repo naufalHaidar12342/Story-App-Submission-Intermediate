@@ -79,6 +79,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:drawablePadding="4dp"
+        android:gravity="center"
         android:text="@string/upload_photo_preview_info"
         app:drawableStartCompat="@drawable/ic_baseline_info_24"
         app:layout_constraintEnd_toEndOf="parent"

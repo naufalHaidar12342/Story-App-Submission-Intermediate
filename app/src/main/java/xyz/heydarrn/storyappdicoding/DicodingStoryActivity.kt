@@ -107,7 +107,12 @@ class DicodingStoryActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            R.id.add_story_button -> { return true }
+            R.id.add_story_button -> {
+                startActivity(
+                    Intent(this, UploadNewStoryActivity::class.java)
+                )
+                return true
+            }
             R.id.log_out_button -> {
                 viewModelStory.logoutFromStoryPage()
                 return true

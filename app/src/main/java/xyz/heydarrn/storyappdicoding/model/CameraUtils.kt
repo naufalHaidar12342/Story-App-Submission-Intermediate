@@ -3,6 +3,7 @@ package xyz.heydarrn.storyappdicoding.model
 import android.app.Application
 import android.content.ContentResolver
 import android.content.Context
+import android.content.ContextWrapper
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
@@ -94,5 +95,27 @@ object CameraUtils {
         }while (streamLength > 1000000)
         bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
         return file
+    }
+
+    fun bitmapToFile(context: Context, result: Bitmap): File {
+        // Get the context wrapper
+        val wrapper = ContextWrapper(context)
+
+        // Initialize a new file instance to save bitmap object
+        var myFile = wrapper.getDir("Images", Context.MODE_PRIVATE)
+        myFile = File(myFile, "${UUID.randomUUID()}.jpg")
+
+        try {
+            // Compress the bitmap and save in jpg format
+            val stream: OutputStream = FileOutputStream(myFile)
+            result.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+            stream.flush()
+            stream.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        // Return the saved bitmap uri
+        return myFile
     }
 }

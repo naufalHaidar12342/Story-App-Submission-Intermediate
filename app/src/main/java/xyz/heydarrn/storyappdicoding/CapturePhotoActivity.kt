@@ -31,6 +31,7 @@ class CapturePhotoActivity : AppCompatActivity() {
         bindingCamera = ActivityCapturePhotoBinding.inflate(layoutInflater)
         setContentView(bindingCamera.root)
 
+
         executeCamera = Executors.newSingleThreadExecutor()
         bindingCamera.apply {
             snapPicture.setOnClickListener {
@@ -55,10 +56,12 @@ class CapturePhotoActivity : AppCompatActivity() {
         val cameraProvider = ProcessCameraProvider.getInstance(this)
         cameraProvider.addListener({
             val provideCamera : ProcessCameraProvider = cameraProvider.get()
-            val previewResult = Preview.Builder()
-            previewResult.build().also {
-                it.setSurfaceProvider(bindingCamera.cameraPreview.surfaceProvider)
-            }
+            val previewResult = Preview
+                .Builder()
+                .build()
+                .also {
+                    it.setSurfaceProvider(bindingCamera.cameraPreview.surfaceProvider)
+                }
 
             captureImage = ImageCapture.Builder().build()
 
@@ -67,6 +70,7 @@ class CapturePhotoActivity : AppCompatActivity() {
                 provideCamera.bindToLifecycle(
                     this,
                     chooseCamera,
+                    previewResult,
                     captureImage
                 )
             }catch (exceptionCamera : Exception) {
@@ -89,7 +93,7 @@ class CapturePhotoActivity : AppCompatActivity() {
                     intentForUpload.apply {
                         putExtra("photo_taken",filePhoto)
                         putExtra(
-                            "backCameraChoosen",
+                            "backCameraChosen",
                             chooseCamera == CameraSelector.DEFAULT_BACK_CAMERA
                         )
                         setResult(UploadNewStoryActivity.CAMERA_X,intentForUpload)
@@ -106,41 +110,16 @@ class CapturePhotoActivity : AppCompatActivity() {
     }
 
     private fun setToFullscreen () {
+        @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.let {
-                // Default behavior is that if navigation bar is hidden, the system will "steal" touches
-                // and show it again upon user's touch. We just want the user to be able to show the
-                // navigation bar by swipe, touches are handled by custom code -> change system bar behavior.
-                // Alternative to deprecated SYSTEM_UI_FLAG_IMMERSIVE.
-                it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-                // make navigation bar translucent (alternative to deprecated
-                // WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
-                // - do this already in hideSystemUI() so that the bar
-                // is translucent if user swipes it up
-                window.navigationBarColor = getColor(R.color.purple_500)
-                // Finally, hide the system bars, alternative to View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                // and SYSTEM_UI_FLAG_FULLSCREEN.
-                it.hide(WindowInsets.Type.systemBars())
-            }
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
         } else {
-            // Enables regular immersive mode.
-            // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
-            // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-            @Suppress("DEPRECATION")
-            window.decorView.systemUiVisibility = (
-                    // Do not let system steal touches for showing the navigation bar
-                    View.SYSTEM_UI_FLAG_IMMERSIVE
-                            // Hide the nav bar and status bar
-                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            or View.SYSTEM_UI_FLAG_FULLSCREEN
-                            // Keep the app content behind the bars even if user swipes them up
-                            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-            // make navbar translucent - do this already in hideSystemUI() so that the bar
-            // is translucent if user swipes it up
-            @Suppress("DEPRECATION")
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
         }
+        supportActionBar?.hide()
     }
 
     override fun onResume() {

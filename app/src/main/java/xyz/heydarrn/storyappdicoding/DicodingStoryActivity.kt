@@ -26,7 +26,7 @@ class DicodingStoryActivity : AppCompatActivity() {
         bindingStory= ActivityDicodingStoryBinding.inflate(layoutInflater)
         setContentView(bindingStory.root)
 
-        supportActionBar?.title="Dicoding's Friend Story"
+        supportActionBar?.title=getString(R.string.story_page_title)
         setIconForTitle()
 
         setupViewModelStory()

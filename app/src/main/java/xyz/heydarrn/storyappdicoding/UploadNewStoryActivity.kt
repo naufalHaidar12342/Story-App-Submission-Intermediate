@@ -41,7 +41,7 @@ class UploadNewStoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bindingUpload = ActivityUploadNewStoryBinding.inflate(layoutInflater)
         setContentView(bindingUpload.root)
-        supportActionBar?.title = "Upload Cerita Baru"
+        supportActionBar?.title = getString(R.string.upload_story_page_title)
         initializePermission()
 
         setupViewModelUpload()
@@ -75,7 +75,7 @@ class UploadNewStoryActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSION) {
             if (!grantedPermissions()) {
-                Toast.makeText(this, "Izin ditolak", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.permission_denied), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -122,7 +122,7 @@ class UploadNewStoryActivity : AppCompatActivity() {
             action = Intent.ACTION_GET_CONTENT
             type = "image/*"
         }
-        val imageChooser = Intent.createChooser(intentOpenGallery, "Pilih salah satu gambar")
+        val imageChooser = Intent.createChooser(intentOpenGallery, getString(R.string.choose_image_hint))
         launchIntentGallery.launch(imageChooser)
     }
 
@@ -143,7 +143,7 @@ class UploadNewStoryActivity : AppCompatActivity() {
         if (getPhotoFile != null) {
             val getImageDesc = bindingUpload.photoDescriptionUpload.text.toString().trim()
             if (getImageDesc.isEmpty()) {
-                bindingUpload.photoDescriptionUpload.error = "Deskripsi gambar harus diisi"
+                bindingUpload.photoDescriptionUpload.error = getString(R.string.image_desc_empty)
             } else {
                 val fileToUpload = CameraUtils.reduceFileImage(getPhotoFile as File)
                 val descriptionToUpload = getImageDesc.toRequestBody("text/plain".toMediaType())
@@ -159,7 +159,6 @@ class UploadNewStoryActivity : AppCompatActivity() {
                 viewModelUpload.uploadStory(token, imageMultipart, descriptionToUpload).observe(this) { uploadResult ->
                     if (uploadResult != null) {
                         when (uploadResult) {
-
                             is ApiResponseConfig.ResponseSuccess -> {
                                 Toast.makeText(
                                     this, uploadResult.data.message,
@@ -172,10 +171,11 @@ class UploadNewStoryActivity : AppCompatActivity() {
                                     )
                                 },2000)
                             }
+
                             is ApiResponseConfig.ResponseFail -> {
                                 Toast.makeText(
                                     this,
-                                    "Upload gagal : ${uploadResult.errorMessage}",
+                                    getString(R.string.upload_story_fail,uploadResult.errorMessage),
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -183,7 +183,7 @@ class UploadNewStoryActivity : AppCompatActivity() {
                             else -> {
                                 Toast.makeText(
                                     this,
-                                    "Pilih gambar dulu",
+                                    getString(R.string.selected_picture_empty),
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -193,8 +193,6 @@ class UploadNewStoryActivity : AppCompatActivity() {
             }
         }
     }
-
-
 
     companion object {
         private val PERMISSION_REQUIREMENT = arrayOf(Manifest.permission.CAMERA)

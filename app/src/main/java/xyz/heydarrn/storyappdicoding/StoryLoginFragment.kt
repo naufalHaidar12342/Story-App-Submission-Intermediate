@@ -32,7 +32,7 @@ class StoryLoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _bindingLogin= FragmentStoryLoginBinding.inflate(inflater,container,false)
         return bindingLogin.root
@@ -40,17 +40,13 @@ class StoryLoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         setPictureForImageView()
         setHyperlinkForRegisterAccount()
-//        bindingLogin.progressBarLogin.visibility=View.GONE
-
         bindingLogin.loginButton.setOnClickListener {
             performLogin()
         }
-
         setupViewModel()
-
     }
 
     private fun setPictureForImageView() {

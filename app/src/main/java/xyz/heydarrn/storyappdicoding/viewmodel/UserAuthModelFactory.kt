@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import xyz.heydarrn.storyappdicoding.model.UserConfig
 import xyz.heydarrn.storyappdicoding.model.UserDatastoreInject
 
+@Suppress("UNCHECKED_CAST")
 class UserAuthModelFactory(
     private val userConfig: UserConfig) : ViewModelProvider.NewInstanceFactory() {
 

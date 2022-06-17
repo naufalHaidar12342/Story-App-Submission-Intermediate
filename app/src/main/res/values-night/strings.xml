@@ -32,4 +32,12 @@
     <string name="upload">Upload</string>
     <string name="image_preview_before_upload">Image preview before upload</string>
     <string name="upload_photo_preview_info">Di atas adalah preview dari photo yang akan di upload. Jika masih kosong, pilih photo dengan jepret langsung atau dari galeri</string>
+    <string name="story_page_title">Dicoding\'s Friend Story</string>
+    <string name="upload_story_page_title">Upload Cerita Baru</string>
+    <string name="permission_denied">Izin ditolak</string>
+    <string name="image_desc_empty">Deskripsi gambar harus diisi</string>
+    <string name="upload_story_fail">Upload gagal :  %1$s</string>
+    <string name="selected_picture_empty">Belum ada photo terpilih. Pilih photo dulu</string>
+    <string name="choose_image_hint">Pilih salah satu photo</string>
+
 </resources>

@@ -41,20 +41,20 @@
             android:id="@+id/email_input_icon"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            motion:layout_constraintTop_toBottomOf="@+id/logo_dicoding"
             android:layout_marginStart="16dp"
             motion:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="32dp"
-            android:alpha="0" />
+            android:alpha="0"
+            motion:layout_constraintTop_toTopOf="@+id/email_login"
+            motion:layout_constraintBottom_toBottomOf="@+id/email_login" />
         <Constraint
             android:id="@+id/password_input_icon"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            motion:layout_constraintTop_toBottomOf="@+id/email_input_icon"
             android:layout_marginStart="16dp"
             motion:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="32dp"
-            android:alpha="0" />
+            android:alpha="0"
+            motion:layout_constraintBottom_toBottomOf="@+id/password_login"
+            motion:layout_constraintTop_toTopOf="@+id/password_login" />
         <Constraint
             android:id="@+id/login_button"
             motion:layout_constraintEnd_toEndOf="parent"
@@ -136,18 +136,18 @@
             android:id="@+id/email_input_icon"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            motion:layout_constraintTop_toBottomOf="@+id/logo_dicoding"
             android:layout_marginStart="16dp"
             motion:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="32dp" />
+            motion:layout_constraintBottom_toBottomOf="@+id/email_login"
+            motion:layout_constraintTop_toTopOf="@+id/email_login" />
         <Constraint
             android:id="@+id/password_input_icon"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            motion:layout_constraintTop_toBottomOf="@+id/email_input_icon"
             android:layout_marginStart="16dp"
             motion:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="32dp" />
+            motion:layout_constraintTop_toTopOf="@+id/password_login"
+            motion:layout_constraintBottom_toBottomOf="@+id/password_login" />
         <Constraint
             android:id="@+id/login_button"
             motion:layout_constraintEnd_toEndOf="parent"

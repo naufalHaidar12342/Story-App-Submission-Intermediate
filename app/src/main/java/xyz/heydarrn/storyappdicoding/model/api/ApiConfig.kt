@@ -8,7 +8,7 @@ import xyz.heydarrn.storyappdicoding.BuildConfig
 
 class ApiConfig {
     companion object {
-        const val BASE_URL="https://story-api.dicoding.dev/v1/"
+        private const val BASE_URL="https://story-api.dicoding.dev/v1/"
         fun getApiService() : ApiService {
             val loggingInterceptor = if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

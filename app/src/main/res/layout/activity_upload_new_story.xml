@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/preview_photo_upload"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="280dp"
         android:contentDescription="@string/image_preview_before_upload"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -45,6 +45,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="@string/give_image_description"
@@ -54,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photo_gallery_upload"
+        app:layout_constraintTop_toBottomOf="@+id/use_location_switch"
         tools:ignore="TextContrastCheck" />
 
     <Button
@@ -85,4 +86,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/preview_photo_upload" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/use_location_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:minHeight="48dp"
+        android:padding="4dp"
+        android:text="@string/upload_my_location"
+        app:layout_constraintEnd_toEndOf="@+id/photo_gallery_upload"
+        app:layout_constraintStart_toStartOf="@+id/photo_gallery_upload"
+        app:layout_constraintTop_toBottomOf="@+id/photo_gallery_upload" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,5 +54,6 @@
     <string name="hybrid_view">Hybrid view</string>
     <string name="satellite_view">Satellite view</string>
     <string name="map_styles">Map styles</string>
+    <string name="upload_my_location">Kirim lokasi saya</string>
 
 </resources>

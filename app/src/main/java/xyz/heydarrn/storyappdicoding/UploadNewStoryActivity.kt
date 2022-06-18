@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import android.location.Location
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +17,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import okhttp3.MediaType.Companion.toMediaType
@@ -35,7 +38,9 @@ class UploadNewStoryActivity : AppCompatActivity() {
     private lateinit var bindingUpload:ActivityUploadNewStoryBinding
     private lateinit var viewModelUpload:UploadOurStoryViewModel
     private lateinit var token:String
-    private var getPhotoFile:File? =null
+    private var getPhotoFile:File? = null
+    private var location: Location? = null
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +55,8 @@ class UploadNewStoryActivity : AppCompatActivity() {
             snapPictureUpload.setOnClickListener { openCamera() }
             uploadButton.setOnClickListener { uploadSelectedPhoto() }
         }
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        setLocationToUse()
     }
 
     private fun setupViewModelUpload() {
@@ -194,6 +201,43 @@ class UploadNewStoryActivity : AppCompatActivity() {
         }
     }
 
+    private fun uploadPersonalLocation() {
+        if (ContextCompat.checkSelfPermission(this.applicationContext, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            fusedLocationProviderClient.lastLocation.addOnSuccessListener { locationResult ->
+                if (locationResult != null) {
+                    this.location = locationResult
+                }else {
+                    bindingUpload.useLocationSwitch.isChecked = false
+                    Toast.makeText(
+                        this,
+                        getString(R.string.location_not_found),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+        else {
+            requestLocationPermission.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+    }
+
+    private val requestLocationPermission = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) {
+        if (it) {
+            uploadPersonalLocation()
+        }
+    }
+
+    private fun setLocationToUse() {
+        bindingUpload.useLocationSwitch.setOnCheckedChangeListener { compoundButton, doesChecked ->
+            if (doesChecked) {
+                uploadPersonalLocation()
+            }else{
+                location = null
+            }
+        }
+    }
     companion object {
         private val PERMISSION_REQUIREMENT = arrayOf(Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSION = 10

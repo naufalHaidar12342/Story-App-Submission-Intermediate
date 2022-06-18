@@ -128,6 +128,12 @@ class DicodingStoryActivity : AppCompatActivity() {
                 viewModelStory.logoutFromStoryPage()
                 return true
             }
+
+            R.id.open_map_button -> {
+                startActivity(
+                    Intent(this, StoryDicodingMapsActivity::class.java)
+                )
+            }
         }
         return false
     }

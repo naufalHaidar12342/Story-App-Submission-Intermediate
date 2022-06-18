@@ -45,5 +45,14 @@
     <string name="add_story_with_location">Add story with location</string>
     <string name="show_storyspread_on_maps">Show storyspread on maps</string>
     <string name="story_paging_title">Story With Paging3</string>
+    <string name="location_not_found">Lokasi tidak ditemukan</string>
+    <string name="my_current_location">Lokasi saya sekarang</string>
+    <string name="failed_to_fetch_story_with_location">Gagal mengambil cerita dengan lokasi</string>
+    <string name="els_computer_address">Jl. MH Thamrin No.45,Semarang</string>
+    <string name="els_computer">\"Marker untuk ELS Computer Semarang \"</string>
+    <string name="normal_view">Normal view</string>
+    <string name="hybrid_view">Hybrid view</string>
+    <string name="satellite_view">Satellite view</string>
+    <string name="map_styles">Map styles</string>
 
 </resources>

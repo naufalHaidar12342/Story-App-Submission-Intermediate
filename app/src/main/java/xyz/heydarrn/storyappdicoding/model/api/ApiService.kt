@@ -47,7 +47,7 @@ interface ApiService {
     ) : GetStoriesResponse
 
     @GET("stories")
-    suspend fun getStoriesForMaps(
+    fun getStoriesForMaps(
         @Header("Authorization") token: String,
         @Query("location") locationEnabled : Int,
     ) : Call<GetStoriesResponse>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/normal_view_maps"
+        android:title="@string/normal_view" />
+    <item
+        android:id="@+id/satellite_view_maps"
+        android:title="@string/satellite_view" />
+    <item
+        android:id="@+id/hybrid_view_maps"
+        android:title="@string/hybrid_view" />
+    <item
+        android:id="@+id/map_styling"
+        android:title="@string/map_styles" />
+</menu>

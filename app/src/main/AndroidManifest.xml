@@ -4,12 +4,15 @@
     package="xyz.heydarrn.storyappdicoding">
 
     <uses-feature android:name="android.hardware.camera.any" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -21,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryAppDicoding"
         tools:targetApi="31">
+        <activity
+            android:name=".StoryWithPagingActivity"
+            android:exported="false" />
         <activity
             android:name=".UploadNewStoryActivity"
             android:exported="false" />

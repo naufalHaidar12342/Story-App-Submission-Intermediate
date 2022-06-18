@@ -3,18 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/add_story_button"
+        android:id="@+id/add_full_story_paging"
         android:icon="@drawable/ic_baseline_add_24"
-        android:title="@string/add_new_story"
+        android:title="@string/add_story_with_location"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/log_out_button"
-        android:icon="@drawable/ic_baseline_logout_24"
-        android:title="@string/item"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/open_map_button"
+        android:id="@+id/show_story_on_maps"
         android:icon="@drawable/ic_baseline_map_24"
-        android:title="@string/open_map"
+        android:title="@string/show_storyspread_on_maps"
         app:showAsAction="ifRoom" />
 </menu>

@@ -2,6 +2,7 @@ package xyz.heydarrn.storyappdicoding.model.api
 
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Call
 import retrofit2.http.*
 import xyz.heydarrn.storyappdicoding.model.api.response.GetStoriesResponse
 import xyz.heydarrn.storyappdicoding.model.api.response.StoryLoginResponse
@@ -37,4 +38,27 @@ interface ApiService {
         @Part file: MultipartBody.Part,
         @Part("description") description: RequestBody
     ): UploadStoryResponse
+
+    @GET("stories")
+    suspend fun getStoriesForPaging(
+        @Header("Authorization") token: String,
+        @Query("size") sizeStory : Int,
+        @Query("page") pageStory : Int,
+    ) : GetStoriesResponse
+
+    @GET("stories")
+    suspend fun getStoriesForMaps(
+        @Header("Authorization") token: String,
+        @Query("location") locationEnabled : Int,
+    ) : Call<GetStoriesResponse>
+
+    @Multipart
+    @POST("stories")
+    suspend fun uploadStoryWithLocation(
+        @Header("Authorization") token: String,
+        @Part file: MultipartBody.Part,
+        @Part("description") description: RequestBody,
+        @Part("lat") latitudeUpload: RequestBody? = null,
+        @Part("lon") longitudeUpload: RequestBody? = null
+    ) : UploadStoryResponse
 }

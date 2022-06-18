@@ -47,5 +47,10 @@
     <string name="upload_story_fail">Upload gagal :  %1$s</string>
     <string name="selected_picture_empty">Belum ada photo terpilih. Pilih photo dulu</string>
     <string name="choose_image_hint">Pilih salah satu photo</string>
+    <string name="open_map">Open Map</string>
+    <string name="tampilkan_cerita_dengan_paging">Tampilkan cerita dengan paging</string>
+    <string name="daftar_cerita_kawan_dicoding_ditampilkan_dengan_paging3">Daftar cerita kawan Dicoding, ditampilkan dengan Paging3</string>
+    <string name="add_story_with_location">Add story with location</string>
+    <string name="show_storyspread_on_maps">Show storyspread on maps</string>
 
 </resources>

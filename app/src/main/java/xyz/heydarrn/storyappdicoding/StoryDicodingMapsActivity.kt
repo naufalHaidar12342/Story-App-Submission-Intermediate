@@ -10,11 +10,14 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import xyz.heydarrn.storyappdicoding.databinding.ActivityStoryDicodingMapsBinding
+import xyz.heydarrn.storyappdicoding.viewmodel.StoriesDicodingViewModel
 
 class StoryDicodingMapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityStoryDicodingMapsBinding
+    private lateinit var viewModel: StoriesDicodingViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +42,7 @@ class StoryDicodingMapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
+        //lat= -6.9835783, lon = 110.4151906
         // Add a marker in Sydney and move the camera
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))

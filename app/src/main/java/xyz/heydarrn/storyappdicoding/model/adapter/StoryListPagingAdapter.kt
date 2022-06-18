@@ -11,8 +11,8 @@ import xyz.heydarrn.storyappdicoding.databinding.DicodingFriendStoryBinding
 import xyz.heydarrn.storyappdicoding.model.api.response.ListStoryItem
 
 class StoryListPagingAdapter : PagingDataAdapter<ListStoryItem, StoryListPagingAdapter.StoryPagingViewHolder>(StoryDiffUtil()) {
-    var whenStorySelected: StoryListAdapter.OpenThisStory? = null
-    fun setThisStoryForDetailView(thisStory: StoryListAdapter.OpenThisStory) { this.whenStorySelected=thisStory  }
+    var whenStorySelected: OpenThisStory? = null
+    fun setThisStoryForDetailView(thisStory: OpenThisStory) { this.whenStorySelected=thisStory  }
 
     inner class StoryPagingViewHolder(private val bindingStory:DicodingFriendStoryBinding) : RecyclerView.ViewHolder(bindingStory.root) {
         fun bindStoryWithPaging(story:ListStoryItem) {

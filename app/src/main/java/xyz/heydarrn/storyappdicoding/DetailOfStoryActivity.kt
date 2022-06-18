@@ -35,6 +35,7 @@ class DetailOfStoryActivity : AppCompatActivity() {
             Glide.with(this@DetailOfStoryActivity)
                 .load(receivedImage)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .placeholder(R.drawable.ic_baseline_image_24)
                 .into(photoDetail)
 
             descriptionDetail.text= receivedImageDesc

@@ -46,6 +46,29 @@ class StoryWithPagingActivity : AppCompatActivity() {
                     adapter = adapterStoryPaging
                     layoutManager = LinearLayoutManager(this@StoryWithPagingActivity)
                 }
+                adapterStoryPaging.setThisStoryForDetailView(object : StoryListPagingAdapter.OpenThisStory {
+                    override fun chooseThisStory(
+                        id: String,
+                        username: String,
+                        postedDate: String,
+                        image: String,
+                        imageDesc: String,
+                        longitude: String?,
+                        latitude: String?
+                    ) {
+                        val intentToDetail =Intent(this@StoryWithPagingActivity,DetailOfStoryActivity::class.java)
+                        intentToDetail.apply {
+                            putExtra("username",username)
+                            putExtra("image_date",postedDate)
+                            putExtra("image_url",image)
+                            putExtra("image_desc",imageDesc)
+                            putExtra("latitude",latitude)
+                            putExtra("longitude",longitude)
+                        }
+                        startActivity(intentToDetail)
+                    }
+
+                })
                 viewModelStory.grabStoriesWithLocation("Bearer $tokenOfUser").observe(this) { getStoryResult ->
                     adapterStoryPaging.submitData(lifecycle, getStoryResult)
                 }

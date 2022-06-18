@@ -44,5 +44,6 @@
     <string name="daftar_cerita_kawan_dicoding_ditampilkan_dengan_paging3">Daftar cerita kawan Dicoding, ditampilkan dengan Paging3</string>
     <string name="add_story_with_location">Add story with location</string>
     <string name="show_storyspread_on_maps">Show storyspread on maps</string>
+    <string name="story_paging_title">Story With Paging3</string>
 
 </resources>

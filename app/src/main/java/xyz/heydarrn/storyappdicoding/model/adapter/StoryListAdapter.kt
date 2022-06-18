@@ -19,7 +19,8 @@ class StoryListAdapter : ListAdapter<ListStoryItem,StoryListAdapter.StoryViewHol
             bindingStory.apply {
                 Glide.with(itemView)
                     .load(listOfStory.photoUrl)
-                    .diskCacheStrategy(DiskCacheStrategy.DATA)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .placeholder(R.drawable.ic_baseline_image_24)
                     .into(storyImage)
 
                 usernameIcon.setImageResource(R.drawable.ic_baseline_people_24)

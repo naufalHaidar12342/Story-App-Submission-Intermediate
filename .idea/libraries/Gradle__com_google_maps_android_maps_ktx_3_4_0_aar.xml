@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.maps.android:maps-ktx:3.4.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/416335ae5e861181545a0dafd4ce09b0/transformed/maps-ktx-3.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c35190db646286e021a5979934ea778d/transformed/maps-ktx-3.4.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c35190db646286e021a5979934ea778d/transformed/maps-ktx-3.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c35190db646286e021a5979934ea778d/transformed/maps-ktx-3.4.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.maps.android/maps-ktx/3.4.0/7838e647bbe48a02b90479f55473fab35c8b8e22/maps-ktx-3.4.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.maps.android/maps-ktx/3.4.0/672979b6939a513f9c5665bd9cd02f31a98a94c1/maps-ktx-3.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

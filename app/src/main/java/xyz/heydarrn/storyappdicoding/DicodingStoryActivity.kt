@@ -20,6 +20,7 @@ import xyz.heydarrn.storyappdicoding.viewmodel.StoriesDicodingViewModel
 class DicodingStoryActivity : AppCompatActivity() {
     private lateinit var bindingStory:ActivityDicodingStoryBinding
     private lateinit var viewModelStory:StoriesDicodingViewModel
+    private val adapterStory by lazy { StoryListAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +29,7 @@ class DicodingStoryActivity : AppCompatActivity() {
 
         supportActionBar?.title=getString(R.string.story_page_title)
         setIconForTitle()
+        openStoryWithPaging()
 
         setupViewModelStory()
     }
@@ -35,6 +37,15 @@ class DicodingStoryActivity : AppCompatActivity() {
     private fun setIconForTitle() {
         bindingStory.imageIconStory.setImageResource(R.drawable.ic_baseline_collections_24)
     }
+
+    private fun openStoryWithPaging() {
+        bindingStory.showPagingStory.setOnClickListener {
+            startActivity(
+                Intent(this, StoryWithPagingActivity::class.java)
+            )
+        }
+    }
+
     private fun setupViewModelStory() {
         val storyFactory:StoriesDicodingModelFactory = StoriesDicodingModelFactory.getStoryModelFactoryInstance(this)
         viewModelStory = ViewModelProvider(this,storyFactory)[StoriesDicodingViewModel::class.java]
@@ -60,7 +71,7 @@ class DicodingStoryActivity : AppCompatActivity() {
                                 bindingStory.progressBarStory.visibility=View.GONE
 
                                 val receiveStory = storyResult.data.listStory
-                                val adapterStory by lazy { StoryListAdapter() }
+
                                 adapterStory.submitList(receiveStory)
 
                                 bindingStory.recyclerViewStories.adapter=adapterStory
